@@ -1,0 +1,131 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: water
+  m_Shader: {fileID: -6465566751694194690, guid: 1fc9a7ebde998064e90c1f8d7127fff4, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_D2925DF6:
+        m_Texture: {fileID: 2800000, guid: 7254183041dbeda40b1543354eaec456, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_E5323F5A:
+        m_Texture: {fileID: 2800000, guid: 5d8dba102d345084894169b40dad19c5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BaseMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SpecGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - reflectionWater:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_195FD84A: 0.34
+    - Vector1_217BA8C7: 0.04
+    - Vector1_310FFCC1: 1
+    - Vector1_31B59DB3: 0.68
+    - Vector1_3F18840: 0.001
+    - Vector1_426452C5: 0.9
+    - Vector1_4A27A55F: 0.1
+    - Vector1_51DEFE8F: 10
+    - Vector1_583C7A8C: 0
+    - Vector1_593F2785: -10.84
+    - Vector1_5B75B4F9: 7.04
+    - Vector1_8C354282: 0.13
+    - Vector1_93D5C22E: 1
+    - Vector1_A41297D1: 192.39
+    - Vector1_ACFB8948: 1.23
+    - Vector1_D3786C3C: 168.31
+    - Vector1_DF0BC9C7: 100
+    - Vector1_E4BE1989: 0.27
+    - Vector1_F795723F: 23456
+    - _AlphaClip: 0
+    - _Blend: 0
+    - _BumpScale: 1
+    - _Cull: 2
+    - _Cutoff: 0.5
+    - _DstBlend: 0
+    - _EnvironmentReflections: 1
+    - _GlossMapScale: 0
+    - _Glossiness: 0
+    - _GlossyReflections: 0
+    - _Metallic: 0
+    - _OcclusionStrength: 1
+    - _QueueOffset: 0
+    - _ReceiveShadows: 1
+    - _Smoothness: 0.5
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _Surface: 0
+    - _WorkflowMode: 1
+    - _ZWrite: 1
+    - reflectioStrenth: 0.2
+    m_Colors:
+    - Color_6A70113: {r: 0, g: 0.53773564, b: 0.6886792, a: 1}
+    - Color_78935239: {r: 0.11084894, g: 0.21836528, b: 0.4433961, a: 1}
+    - Color_89774195: {r: 1, g: 1, b: 1, a: 1}
+    - Vector2_56B1DB87: {r: 0.5, g: 0.5, b: 0, a: 0}
+    - Vector2_64DC0690: {r: -10, g: 20, b: 0, a: 0}
+    - Vector2_A7CF7A20: {r: -10, g: -20, b: 0, a: 0}
+    - Vector2_F0B06A1A: {r: 30, g: 30, b: 0, a: 0}
+    - Vector2_F3504A7A: {r: 100, g: 100, b: 0, a: 0}
+    - Vector2_F8D51CD6: {r: 100, g: 100, b: 0, a: 0}
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+  m_BuildTextureStacks: []
+--- !u!114 &7954343295163250177
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 2
