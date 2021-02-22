@@ -22,7 +22,6 @@ public class cameraMov : MonoBehaviour
 
     public float mouseSensetivity = 20f;
 
-    public bool goToStartingRotation = false;
     /****ignore****/
     float xp = 0;
     float zp = 0;
@@ -83,9 +82,8 @@ public class cameraMov : MonoBehaviour
 
     void Zoom()
     {
-
-        float y = Input.GetAxis("Mouse ScrollWheel");
-
+        float y = 0f;
+        y += Input.GetAxis("Mouse ScrollWheel") + Input.GetAxis("zoom");
         if (transform.position.y > maxHeight && y < 0f) y = 0;
         else if (transform.position.y < minHeight && y > 0f) y = 0;
 
@@ -101,57 +99,17 @@ public class cameraMov : MonoBehaviour
     }
     void Rotate()
     {
-        //1. when left mouse button clicked (but not released)
-        /*
-        if (Input.GetMouseButtonDown(2))
+        float mouseX = 0;
+        if (Input.GetMouseButton(2) || Input.GetKey("space"))
         {
-
-        }
-        */
-
-        //2. while left mouse button held
-        if (Input.GetMouseButton(2))
-        {
-            goToStartingRotation = false;
-            float mouseX = Input.GetAxis("Mouse X") * mouseSensetivity * Time.deltaTime;
+            mouseX += Input.GetAxis("Mouse X");
             //float mouseY = Input.GetAxis("Mouse Y") * mouseSensetivity * Time.deltaTime;
 
-            float rotateY = mouseX;
-            //float rotateX = -mouseY;
-            //Debug.Log(transform.localRotation.x);
-            /*
-            if (transform.rotation.x * 100f + rotateX > rotateXMin)
-            {
-                //rotateX = rotateXMin/100f - transform.localRotation.x;
-                rotateX = 0;
-            }
-            if(transform.rotation.x * 100f + rotateX < rotateXMax)
-            {
-                //rotateX = rotateXMax/100f - transform.localRotation.x;
-                rotateX = 0;
-            }
-            */
-            //gameObject.transform.Rotate(rotateX, 0, 0, Space.Self);
-            gameObject.transform.Rotate(0, rotateY, 0, Space.World);
-
         }
-        /*
-        //3. when mouse button comes up
-        if (Input.GetMouseButtonUp(2))
-        {
-            //gameObject.transform.Rotate(0, rotate, 0, Space.World);
-            goToStartingRotation = true; 
-        }
+        mouseX += Input.GetAxis("rotateCamera");
+        float rotateY = mouseX * mouseSensetivity * Time.deltaTime;
 
-        if(goToStartingRotation)
-        {
-            Quaternion rotation =  Quaternion.Euler(0, 0, 0);
-            Quaternion currentRot = transform.rotation;
-
-            transform.rotation = Quaternion.Slerp(currentRot, rotation, 1f *Time.deltaTime);
-            
-        }
-        */
+        gameObject.transform.Rotate(0, rotateY, 0, Space.World);
     }
     /*********************************************************************************opcije?*/
     public void BorderPan(bool value)

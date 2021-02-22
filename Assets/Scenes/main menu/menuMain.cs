@@ -9,6 +9,7 @@ public class menuMain : MonoBehaviour
 
     void Start()
     {
+
         if (SceneManager.GetActiveScene().buildIndex != 0)
         {
             transition.Play("in");

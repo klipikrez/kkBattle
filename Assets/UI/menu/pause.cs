@@ -62,7 +62,7 @@ public class pause : MonoBehaviour
             }
         }
 
-
+        /*
         instanicableScriptsToDesable = GameObject.FindGameObjectsWithTag("building");
 
         foreach (var gameObject in instanicableScriptsToDesable)
@@ -72,16 +72,10 @@ public class pause : MonoBehaviour
             {
                 components.enabled = false;
             }
-            /*
-            var components = gameObject.GetComponents<Component>();
+            
 
-            foreach (var component in components)
-            {
-                var behaviour = component as Behaviour;
-                if (behaviour) behaviour.enabled = value;
-            }
-            */
-        }
-
+            
+    }
+    */
     }
 }

@@ -16,7 +16,7 @@ public class camreamov222 : MonoBehaviour
     void Update()
     {
         //2. while left mouse button held
-        if (Input.GetMouseButton(2))
+        if (Input.GetMouseButton(2) || Input.GetKey("space"))
         {
             goToStartingRotation = false;
             //float mouseX = Input.GetAxis("Mouse X") * mouseSensetivity * Time.deltaTime;
@@ -52,7 +52,7 @@ public class camreamov222 : MonoBehaviour
         }
 
         //3. when mouse button comes up
-        if (Input.GetMouseButtonUp(2))
+        if (Input.GetMouseButtonUp(2) || Input.GetKeyUp("space"))
         {
             //gameObject.transform.Rotate(0, rotate, 0, Space.World);
             goToStartingRotation = true;

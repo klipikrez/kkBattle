@@ -11,20 +11,22 @@ public class detectPlayer : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.transform.parent.gameObject != null)
-        {
 
-            if (other.transform.parent.gameObject.GetComponent<teamIdentefier>() != null)
+        if (other.transform.CompareTag("Player"))
+        {
+            if (other.transform.parent.gameObject != null)
             {
 
-
-
-                if (other.transform.CompareTag("Player"))
+                if (other.transform.parent.gameObject.GetComponent<teamIdentefier>() != null)
                 {
 
-                    anim.SetBool("player", true);
-                }
 
+
+
+                    anim.SetBool("player", true);
+
+
+                }
             }
         }
     }

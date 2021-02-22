@@ -33,8 +33,10 @@ public class buildingConstruct : MonoBehaviour
     }
     void Update()
     {
-        if(unitQue[0] != 0)
+        
+        if (numberOfUnitsCurrentlyInQue != 0)
         {
+            
             UpdateProgressBar(unitBuildTime[unitQue[0]], timer);
             
             timer += Time.deltaTime;
@@ -49,12 +51,14 @@ public class buildingConstruct : MonoBehaviour
 
     public void AddUnitToBuildQue(int unitID)
     {
-        
+
         if (numberOfUnitsCurrentlyInQue != unitQue.Length)
         {
+            
             if (RemoveResource(unitID))
             {
                 unitQue[numberOfUnitsCurrentlyInQue] = unitID;
+                
                 numberOfUnitsCurrentlyInQue++;
             }
 
@@ -65,6 +69,7 @@ public class buildingConstruct : MonoBehaviour
             menu.GetComponent<hud>().addWarning("a de zuris? bato bre.");
             //play warning
         }
+
     }
 
     void BuildUnit(int unitID)

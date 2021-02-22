@@ -435,6 +435,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3294095785470300323, guid: 3fe8a6044f0042249ac7ae6b15327fbc, type: 3}
+      propertyPath: m_text
+      value: Construction
+      objectReference: {fileID: 0}
     - target: {fileID: 5284583852196726450, guid: 3fe8a6044f0042249ac7ae6b15327fbc, type: 3}
       propertyPath: m_Extents.x
       value: 5
