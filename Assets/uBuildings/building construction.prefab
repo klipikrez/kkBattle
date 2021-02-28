@@ -232,6 +232,7 @@ GameObject:
   - component: {fileID: 9028340331942550365}
   - component: {fileID: 7007392601943902390}
   - component: {fileID: 6387425304677754469}
+  - component: {fileID: 8061411202000612050}
   m_Layer: 15
   m_Name: building construction
   m_TagString: blueprint
@@ -342,6 +343,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gui: {fileID: 1188449118729280316}
+--- !u!114 &8061411202000612050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2714818281872599704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 275ef5e1ad7c1cb479ecd0cc180d1912, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teamID: 0
+  health: 100
+  isFlying: 0
 --- !u!1 &3763027308458016047
 GameObject:
   m_ObjectHideFlags: 0

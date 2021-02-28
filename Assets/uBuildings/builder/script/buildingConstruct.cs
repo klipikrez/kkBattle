@@ -76,6 +76,8 @@ public class buildingConstruct : MonoBehaviour
     {
         timer = 0;
         GameObject instanciatedUnit = Instantiate(unit[unitID], spawnSpot.position + new Vector3(Random.Range(-1.0f, 1.0f), 0, Random.Range(-1.0f, 1.0f)), spawnSpot.rotation);
+        instanciatedUnit.GetComponent<teamIdentefier>().teamColor = gameObject.GetComponent<teamIdentefier>().teamColor;
+        instanciatedUnit.GetComponent<teamIdentefier>().teamID = gameObject.GetComponent<teamIdentefier>().teamID;
         GoDownByOne();
         if (building != null)
         {

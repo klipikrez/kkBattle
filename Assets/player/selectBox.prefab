@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 718631544495981893}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -47.1, y: 75.02, z: -178.2}
+  m_LocalPosition: {x: -379.6, y: 95.1, z: -137.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 718631546135590029}
@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9e5fb1a4e456c54184eeb98b510a9af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  height_offset: 30
   movSpeed: 1
   zoomSpeed: 1000
   rotateXMax: -40
@@ -55,7 +56,6 @@ MonoBehaviour:
   maxHeight: 313.74
   minHeight: -1302.1
   mouseSensetivity: 400
-  goToStartingRotation: 0
   enableBorderPan: 0
 --- !u!143 &718631544495981890
 CharacterController:
@@ -164,7 +164,6 @@ MonoBehaviour:
   radTimes: 6
   distTimes: 5
   once: 0
-  builderMenu: {fileID: 0}
 --- !u!114 &718631546054402164
 MonoBehaviour:
   m_ObjectHideFlags: 0

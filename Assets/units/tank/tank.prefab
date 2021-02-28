@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275ef5e1ad7c1cb479ecd0cc180d1912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teamID: 0
+  teamID: 62
   health: 100
   isFlying: 0
 --- !u!205 &2452586162899272375
@@ -171,7 +171,7 @@ AudioSource:
   m_GameObject: {fileID: 436485884068622680}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 7861788985331153432, guid: 9f07d899b37335d4584af36e6f6faf0a, type: 2}
   m_audioClip: {fileID: 8300000, guid: ad86bad200d7cb14fb97f6a86be75b13, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -271,7 +271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outlineMode: 0
-  outlineColor: {r: 1, g: 0, b: 0, a: 1}
+  outlineColor: {r: 1, g: 0.032495562, b: 0, a: 1}
   outlineWidth: 2
   precomputeOutline: 0
   bakeKeys: []
@@ -314,6 +314,7 @@ MonoBehaviour:
   AttackRate: 2
   canAttackFlying: 0
   currentlyEngaging: {fileID: 0}
+  resetRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1776642254929711782
 GameObject:
   m_ObjectHideFlags: 0
@@ -644,6 +645,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91fd9e8d03684214f8f1b809b4944e94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selfTeamID: {fileID: 0}
+  dictionary: {fileID: 0}
 --- !u!54 &6698909823897038278
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -792,6 +795,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8698942566462732496, guid: fc56caaf34155af4ca52ac5d284b7e81, type: 3}
       propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8698942566462732496, guid: fc56caaf34155af4ca52ac5d284b7e81, type: 3}
+      propertyPath: m_DynamicOccludee
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fc56caaf34155af4ca52ac5d284b7e81, type: 3}
@@ -1284,6 +1291,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4369333658661896379, guid: fc56caaf34155af4ca52ac5d284b7e81, type: 3}
       propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4369333658661896379, guid: fc56caaf34155af4ca52ac5d284b7e81, type: 3}
+      propertyPath: m_DynamicOccludee
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4242720190659259422, guid: fc56caaf34155af4ca52ac5d284b7e81, type: 3}
@@ -2250,6 +2261,10 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6208352934140021298, guid: fc56caaf34155af4ca52ac5d284b7e81, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6233565662898771931, guid: fc56caaf34155af4ca52ac5d284b7e81, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 1
@@ -2260,6 +2275,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6339198627856926909, guid: fc56caaf34155af4ca52ac5d284b7e81, type: 3}
       propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6339198627856926909, guid: fc56caaf34155af4ca52ac5d284b7e81, type: 3}
+      propertyPath: m_DynamicOccludee
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6459688310938818322, guid: fc56caaf34155af4ca52ac5d284b7e81, type: 3}
@@ -2520,7 +2539,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9033058862568800447, guid: fc56caaf34155af4ca52ac5d284b7e81, type: 3}
       propertyPath: m_CastShadows
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9033058862568800447, guid: fc56caaf34155af4ca52ac5d284b7e81, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9050862947538672134, guid: fc56caaf34155af4ca52ac5d284b7e81, type: 3}
       propertyPath: m_StaticEditorFlags

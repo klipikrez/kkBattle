@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class cameraMov : MonoBehaviour
 {
+    public float height_offset = 50;
 
     public float movSpeed = 20f;
     public float zoomSpeed = 100f;
@@ -56,7 +57,7 @@ public class cameraMov : MonoBehaviour
         Vector3 move = transform.right * x + transform.forward * z;
 
         //transform.position = transform.position + (move * movSpeed * Time.deltaTime);
-        controller.Move(move * movSpeed * Time.deltaTime * transform.position.y);
+        controller.Move(move * movSpeed * Time.deltaTime * (transform.position.y - height_offset));
 
     }
 

@@ -5,21 +5,27 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 public class menuMain : MonoBehaviour
 {
-    public AudioMixer mixer;
+    public AudioMixer main;
+    /*public AudioMixer music;
+    public AudioMixer gameEffects;
+    public AudioMixer UIEffects;*/
+    public GameObject transition;
 
     void Start()
     {
 
         if (SceneManager.GetActiveScene().buildIndex != 0)
         {
-            transition.Play("in");
+            transition.transform.parent.gameObject.SetActive(true);
+            StartCoroutine(PlayTransitionIn());
         }
     }
 
-    public Animator transition;
+
     public void Play()
     {
-        StartCoroutine(PlayTransition());
+        Time.timeScale = 1;
+        StartCoroutine(PlayTransitionOut());
 
     }
 
@@ -33,17 +39,38 @@ public class menuMain : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    IEnumerator PlayTransition()
+    IEnumerator PlayTransitionOut()
     {
-        transition.gameObject.SetActive(true);
-        transition.Play("out");
+        transition.transform.parent.gameObject.SetActive(true);
+        transition.GetComponent<Animator>().Play("out");
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene(1);
     }
 
-    public void SetVolume(float volume)
+    IEnumerator PlayTransitionIn()
     {
-        mixer.SetFloat("main", Mathf.Log10(volume) * 20);
+        transition.transform.parent.gameObject.SetActive(true);
+        transition.GetComponent<Animator>().Play("in");
+        yield return new WaitForSeconds(3);
+        transition.transform.parent.gameObject.SetActive(false);
+    }
+
+    public void SetVolumeMain(float volume)
+    {
+        main.SetFloat("main", Mathf.Log10(volume) * 20);
+    }
+
+    public void SetVolumeMusic(float volume)
+    {
+        main.SetFloat("music", Mathf.Log10(volume) * 20);
+    }
+    public void SetVolumeGame(float volume)
+    {
+        main.SetFloat("game", Mathf.Log10(volume) * 20);
+    }
+    public void SetVolumeUI(float volume)
+    {
+        main.SetFloat("ui", Mathf.Log10(volume) * 20);
     }
 
 }

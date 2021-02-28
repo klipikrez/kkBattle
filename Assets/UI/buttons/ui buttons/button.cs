@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class button : MonoBehaviour
 {
+
     public Image burronIdentefier;
     public Color dimCol;
     public Color lightCol;
@@ -31,4 +32,6 @@ public class button : MonoBehaviour
             light();
         }
     }
+
+
 }

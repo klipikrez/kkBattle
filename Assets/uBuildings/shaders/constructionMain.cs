@@ -57,7 +57,9 @@ public class constructionMain : MonoBehaviour
 
     void placePrefab()
     {
-        Instantiate(prefab, transform.position, transform.rotation);
+        GameObject radiViseAjdeeee = Instantiate(prefab, transform.position, transform.rotation);
+        radiViseAjdeeee.GetComponent<teamIdentefier>().teamID = gameObject.GetComponent<teamIdentefier>().teamID;
+        radiViseAjdeeee.GetComponent<teamIdentefier>().teamColor = gameObject.GetComponent<teamIdentefier>().teamColor;
         delete();
     }
 

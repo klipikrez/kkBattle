@@ -24,12 +24,11 @@ public class selected_dictionary : MonoBehaviour
 
     public bool once;
 
-    public GameObject builderMenu;
     buildngPlacement BuildngPlacement;
 
     void Awake()
     {
-        BuildngPlacement = builderMenu.GetComponent<buildngPlacement>();
+        BuildngPlacement = GameObject.FindGameObjectWithTag("mainMenu").GetComponent<buildngPlacement>();
     }
 
     public void addSelected(GameObject go)
@@ -232,6 +231,9 @@ public class selected_dictionary : MonoBehaviour
             }
         }
     }
+
+
+
 
     public void SelectedBuilding(GameObject go)
     {

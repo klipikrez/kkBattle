@@ -160,10 +160,9 @@ public class buildngPlacement : MonoBehaviour
                 //stavi menu u taj variavble
                 GameObject building = Instantiate(BuildingsPrefabsQ[number], BuildingsBlueprintsQ[number].transform.position, BuildingsBlueprintsQ[number].transform.rotation);
 
-                if (building.GetComponent<mainResource>() != null)
-                {
-                    building.GetComponent<mainResource>().mainMenu = gameObject;
-                }
+                building.GetComponent<teamIdentefier>().teamID = selectBox.GetComponent<teamIdentefier>().teamID;
+                building.GetComponent<teamIdentefier>().teamColor = selectBox.GetComponent<teamIdentefier>().teamColor;
+
                 selectBox.GetComponent<selected_dictionary>().SetDestination(building.transform, building);
             }
             else
