@@ -7,29 +7,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1415057565721050184, guid: dde6d99fe84b2604fabf0150d38b0212, type: 3}
-      propertyPath: scriptsToDisable.Array.data[0]
-      value: 
+    - target: {fileID: 861330813598933778, guid: dde6d99fe84b2604fabf0150d38b0212, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2827544960410966254, guid: dde6d99fe84b2604fabf0150d38b0212, type: 3}
-      propertyPath: BuildingsBlueprintsQ.Array.data[0]
-      value: 
+    - target: {fileID: 861330813598933778, guid: dde6d99fe84b2604fabf0150d38b0212, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2827544960410966254, guid: dde6d99fe84b2604fabf0150d38b0212, type: 3}
-      propertyPath: BuildingsBlueprintsQ.Array.data[1]
-      value: 
+    - target: {fileID: 861330813598933778, guid: dde6d99fe84b2604fabf0150d38b0212, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2827544960410966254, guid: dde6d99fe84b2604fabf0150d38b0212, type: 3}
-      propertyPath: BuildingsBlueprintsQ.Array.data[2]
-      value: 
+    - target: {fileID: 3296140120388601318, guid: dde6d99fe84b2604fabf0150d38b0212, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2827544960410966254, guid: dde6d99fe84b2604fabf0150d38b0212, type: 3}
-      propertyPath: BuildingsBlueprintsQ.Array.data[3]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2827544960410966254, guid: dde6d99fe84b2604fabf0150d38b0212, type: 3}
-      propertyPath: BuildingsBlueprintsQ.Array.data[4]
-      value: 
+    - target: {fileID: 3296140120388601318, guid: dde6d99fe84b2604fabf0150d38b0212, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4446940225856373559, guid: dde6d99fe84b2604fabf0150d38b0212, type: 3}
       propertyPath: m_LocalPosition.x
@@ -75,21 +71,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4673489799464031926, guid: dde6d99fe84b2604fabf0150d38b0212, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5157730419040782727, guid: dde6d99fe84b2604fabf0150d38b0212, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7662394053644458313, guid: dde6d99fe84b2604fabf0150d38b0212, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ContinueGame
-      objectReference: {fileID: 0}
     - target: {fileID: 8247068473494953352, guid: dde6d99fe84b2604fabf0150d38b0212, type: 3}
       propertyPath: m_Name
-      value: MAIN_GAME
+      value: MAIN_GAME Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dde6d99fe84b2604fabf0150d38b0212, type: 3}

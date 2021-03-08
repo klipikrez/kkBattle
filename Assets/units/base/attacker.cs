@@ -157,10 +157,11 @@ public class attacker : MonoBehaviour
     IEnumerator TakeDamage(GameObject enemy)
     {
         yield return new WaitForSeconds(Vector3.Distance(enemy.transform.position, bullet.gameObject.transform.position) / bulletSpeed);
-       
 
+        if (enemy != null)
+        {
             enemy.GetComponent<teamIdentefier>().TakeDamage(damage);
-
+        }
 
     }
 

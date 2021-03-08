@@ -5,57 +5,67 @@ using UnityEngine;
 public class camreamov222 : MonoBehaviour
 {
     public float mouseSensetivity = 200f;
-    bool goToStartingRotation = false;
+    bool goToStartingRotation = true;
+
+
+    public Quaternion rotationMin = Quaternion.Euler(new Vector3(-50f, 0f, 0f));
+    public Quaternion rotationMax = Quaternion.Euler(new Vector3(50f, 0f, 0f));
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
         //2. while left mouse button held
-        if (Input.GetMouseButton(2) || Input.GetKey("space"))
+        if (Input.GetKey("space") || Input.GetMouseButton(2))
         {
-            goToStartingRotation = false;
-            //float mouseX = Input.GetAxis("Mouse X") * mouseSensetivity * Time.deltaTime;
-            float mouseY = Input.GetAxis("Mouse Y") * mouseSensetivity * Time.deltaTime;
 
-            float rotateX = -mouseY;
-            if (transform.localRotation.x <=0 && rotateX<0)
+            float mouseY = Input.GetAxis("Mouse Y");
+
+            float rotateX = -mouseY * mouseSensetivity * Time.deltaTime;
+
+            if (transform.localRotation.x + rotateX /100f < 0)
             {
-                rotateX = 0;
+                transform.localRotation = new Quaternion(0, 0, 0, 1);
+
             }
-            if (transform.localRotation.x > 0.4f && rotateX > 0)
+            else
             {
-                rotateX = 0;
+
+
+                if (transform.localRotation.x + rotateX/100f > 0.4)
+                {
+                    transform.localRotation = new Quaternion(0.4f, 0, 0, 0.9f);
+
+                }
+                else
+                {
+                    gameObject.transform.Rotate(rotateX, 0, 0, Space.Self);
+                }
             }
-            //Debug.Log(transform.localRotation.x);
-            //float rotateX = -mouseY;
-            //Debug.Log(transform.localRotation.x);
-            /*
-            if (transform.rotation.x * 100f + rotateX > rotateXMin)
-            {
-                //rotateX = rotateXMin/100f - transform.localRotation.x;
-                rotateX = 0;
-            }
-            if(transform.rotation.x * 100f + rotateX < rotateXMax)
-            {
-                //rotateX = rotateXMax/100f - transform.localRotation.x;
-                rotateX = 0;
-            }
-            */
-            gameObject.transform.Rotate(rotateX, 0, 0, Space.Self);
-            //gameObject.transform.Rotate(0, rotateY, 0, Space.World);
+
+
+           
+
+
+
+            goToStartingRotation = false;
+
+
 
         }
 
         //3. when mouse button comes up
-        if (Input.GetMouseButtonUp(2) || Input.GetKeyUp("space"))
+        if (Input.GetKeyUp("space") || Input.GetMouseButtonUp(2))
         {
             //gameObject.transform.Rotate(0, rotate, 0, Space.World);
             goToStartingRotation = true;
+
+
         }
 
         if (goToStartingRotation)
@@ -66,5 +76,6 @@ public class camreamov222 : MonoBehaviour
             transform.localRotation = Quaternion.Slerp(currentRot, rotation, 1f * Time.deltaTime);
 
         }
+
     }
 }

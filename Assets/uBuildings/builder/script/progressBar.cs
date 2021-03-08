@@ -22,7 +22,7 @@ public class progressBar : MonoBehaviour
 
     }
 
-    public void updateBar(float time)
+    public void UpdateBar(float time)
     {
         oldValue += Time.deltaTime;
         //NewValue = (((OldValue - OldMin) * (NewMax - NewMin)) / (OldMax - OldMin)) + NewMin

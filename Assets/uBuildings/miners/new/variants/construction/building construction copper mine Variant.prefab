@@ -51,9 +51,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2475864070294227480, guid: dab4eead888ecc04b808e3b9ffdba7df, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 30.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2475864070294227480, guid: dab4eead888ecc04b808e3b9ffdba7df, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2475864070294227480, guid: dab4eead888ecc04b808e3b9ffdba7df, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2714818281872599704, guid: dab4eead888ecc04b808e3b9ffdba7df, type: 3}
       propertyPath: m_Name
       value: building construction copper mine Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 2745303110989136065, guid: dab4eead888ecc04b808e3b9ffdba7df, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2745303110989136065, guid: dab4eead888ecc04b808e3b9ffdba7df, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2745303110989136065, guid: dab4eead888ecc04b808e3b9ffdba7df, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.546
+      objectReference: {fileID: 0}
+    - target: {fileID: 2745303110989136065, guid: dab4eead888ecc04b808e3b9ffdba7df, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.836
+      objectReference: {fileID: 0}
+    - target: {fileID: 2745303110989136065, guid: dab4eead888ecc04b808e3b9ffdba7df, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 8.804115
+      objectReference: {fileID: 0}
+    - target: {fileID: 2745303110989136065, guid: dab4eead888ecc04b808e3b9ffdba7df, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 7.7761307
       objectReference: {fileID: 0}
     - target: {fileID: 9028340331942550365, guid: dab4eead888ecc04b808e3b9ffdba7df, type: 3}
       propertyPath: maxProgress
