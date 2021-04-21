@@ -5,6 +5,7 @@ using UnityEngine;
 public class pause : MonoBehaviour
 {
     public GameObject panel;
+    GameObject selectBox;
 
     public GameObject[] scriptsToDisable = new GameObject[10];
     GameObject[] instanicableScriptsToDesable;
@@ -12,6 +13,7 @@ public class pause : MonoBehaviour
     public 
     void Start()
     {
+        selectBox = GameObject.FindGameObjectWithTag("selectBox");
         panel.SetActive(false);
     }
     void Update()
@@ -61,6 +63,10 @@ public class pause : MonoBehaviour
                 if (behaviour) behaviour.enabled = value;
             }
         }
+
+        global_selection paus = selectBox.GetComponent<global_selection>();
+
+        paus.enabled = value;
 
         /*
         instanicableScriptsToDesable = GameObject.FindGameObjectsWithTag("building");

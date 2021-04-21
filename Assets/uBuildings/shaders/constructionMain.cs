@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
+using Mirror.multiplayerOverride;
 
-public class constructionMain : MonoBehaviour
+public class constructionMain : NetworkBehaviour
 {
     public GameObject prefab;
     //public GameObject mat;
@@ -20,6 +22,16 @@ public class constructionMain : MonoBehaviour
     public LayerMask layers;
 
     public Transform goHere;
+
+    private networkManagerOverride room;
+    public networkManagerOverride Room
+    {
+        get
+        {
+            if (room != null) { return room; }
+            return room = NetworkManager.singleton as networkManagerOverride;
+        }
+    }
 
     void Start()
     {
@@ -55,13 +67,6 @@ public class constructionMain : MonoBehaviour
         rend.material.SetFloat("progress", setProgress);
     }
 
-    void placePrefab()
-    {
-        GameObject radiViseAjdeeee = Instantiate(prefab, transform.position, transform.rotation);
-        radiViseAjdeeee.GetComponent<teamIdentefier>().teamID = gameObject.GetComponent<teamIdentefier>().teamID;
-        radiViseAjdeeee.GetComponent<teamIdentefier>().teamColor = gameObject.GetComponent<teamIdentefier>().teamColor;
-        delete();
-    }
 
 
     void CheckBuilders()
@@ -70,7 +75,24 @@ public class constructionMain : MonoBehaviour
         //Debug.Log(goBuilders.Length);
         builders = goBuilders.Length;
     }
-    
+
+    [Command]
+    void placePrefab()
+    {
+        GameObject radiViseAjdeeee = Instantiate(prefab, transform.position, transform.rotation);
+        radiViseAjdeeee.GetComponent<teamIdentefier>().teamID = gameObject.GetComponent<teamIdentefier>().teamID;
+        radiViseAjdeeee.GetComponent<teamIdentefier>().teamColor = gameObject.GetComponent<teamIdentefier>().teamColor;
+        //deleteObjs();
+        NetworkServer.Spawn(radiViseAjdeeee, Room.GamePlayers[gameObject.GetComponent<teamIdentefier>().teamID].gameObject);
+        delete();
+    }
+    /*
+    [Command]
+    void deleteObjs()
+    {
+
+    }*/
+
     public void delete()
     {
         if (goBuilders != null)

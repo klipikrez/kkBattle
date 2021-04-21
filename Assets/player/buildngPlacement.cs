@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+
 public class buildngPlacement : MonoBehaviour
 {
     
@@ -23,8 +24,10 @@ public class buildngPlacement : MonoBehaviour
 
     public LayerMask DestructableLayers;
 
-
-    GameObject selectBox;
+    [System.NonSerialized]
+    public GameObject selectBox;
+    [System.NonSerialized]
+    public GameObject HQ;
 
     public float rotaeBuildingSencetivity = 5f;
 
@@ -39,13 +42,12 @@ public class buildngPlacement : MonoBehaviour
     public float panBorderThicc = 20f;
     //public GameObject builderMenu;
 
-
+    GameObject currentBlueprint;
 
     int cost=0;
 
 
-
-
+    
 
     void Start()
     {
@@ -69,16 +71,13 @@ public class buildngPlacement : MonoBehaviour
                 i++;
                 gameObject.GetComponent<pause>().DisableScripts(false);
             }
-            //skripta da objekat prati mis.   broj odredjuje koji Transform aktivno prati mis
 
+
+            //set pos
             RaycastHit hit = RayFromCamera(Input.mousePosition, 1000.0f);
-            BuildingsBlueprintsQ[number].transform.position = hit.point;
-            if (!BuildingsBlueprintsQ[number].activeSelf)
-            {
-                BuildingsBlueprintsQ[number].SetActive(true);
-            }
+            currentBlueprint.transform.position = hit.point;
 
-            bool canPlaceHere = Physics.CheckBox(hit.point + BuildingsStartLocationOffsetQ[number], BuildingDimensionsQ[number], BuildingsBlueprintsQ[number].transform.rotation, ~BuildingLayersQ[number]);
+            bool canPlaceHere = Physics.CheckBox(hit.point + BuildingsStartLocationOffsetQ[number], BuildingDimensionsQ[number], currentBlueprint.transform.rotation, ~BuildingLayersQ[number]);
             if (!canPlaceHere)
             {
 
@@ -95,7 +94,8 @@ public class buildngPlacement : MonoBehaviour
                 float remap = map(panBorderThicc, 0, 100, 0, Screen.height);
                 if (Input.mousePosition.y <= remap /*&& builderMenu.activeSelf && !EventSystem.current.IsPointerOverGameObject()*/)
                 {
-                    BuildingsBlueprintsQ[number].SetActive(false);
+                    //BuildingsBlueprintsQ[number].SetActive(false);
+                    Destroy(currentBlueprint);
                     inUse = false;
                     i = 0;
                     gameObject.GetComponent<pause>().DisableScripts(true);
@@ -106,7 +106,8 @@ public class buildngPlacement : MonoBehaviour
 
                     if (!Input.GetKey(KeyCode.LeftShift))
                     {
-                        BuildingsBlueprintsQ[number].SetActive(false);
+                        //BuildingsBlueprintsQ[number].SetActive(false);
+                        Destroy(currentBlueprint);
                         inUse = false;
                         i = 0;
                         gameObject.GetComponent<pause>().DisableScripts(true);
@@ -122,7 +123,8 @@ public class buildngPlacement : MonoBehaviour
             else
             if (Input.GetMouseButtonDown(1))
             {
-                BuildingsBlueprintsQ[number].SetActive(false);
+                //BuildingsBlueprintsQ[number].SetActive(false);
+                Destroy(currentBlueprint);
                 inUse = false;
                 i = 0;
                 //aktivira opet sve skripte sto su iskljucene ⊙⊙ on glidi :)
@@ -132,49 +134,7 @@ public class buildngPlacement : MonoBehaviour
         }
 
     }
-    public void PlaceBuilding()
-    {
 
-
-
-
-        bool canPlaceHere = BoxCast();
-        if (!canPlaceHere && !EventSystem.current.IsPointerOverGameObject())
-        {
-            if (RemoveResources())
-            {
-                //destroy trees and stuff
-
-                foreach (Collider col in BoxCollect())
-                {
-                    //Debug.Log(col.gameObject.tag);
-                    if (col.gameObject.CompareTag("destructableTerrain"))
-                    {
-
-
-                        Destroy(col.gameObject);
-
-                    }
-                }
-
-                //stavi menu u taj variavble
-                GameObject building = Instantiate(BuildingsPrefabsQ[number], BuildingsBlueprintsQ[number].transform.position, BuildingsBlueprintsQ[number].transform.rotation);
-
-                building.GetComponent<teamIdentefier>().teamID = selectBox.GetComponent<teamIdentefier>().teamID;
-                building.GetComponent<teamIdentefier>().teamColor = selectBox.GetComponent<teamIdentefier>().teamColor;
-
-                selectBox.GetComponent<selected_dictionary>().SetDestination(building.transform, building);
-            }
-            else
-            {
-                BuildingsBlueprintsQ[number].SetActive(false);
-            }
-        }
-        if (!Input.GetKey(KeyCode.LeftShift))
-        {
-            BuildingsBlueprintsQ[number].SetActive(false);
-        }
-    }
 
     bool RemoveResources()
     {
@@ -249,14 +209,17 @@ public class buildngPlacement : MonoBehaviour
     {
 
         float rotation = Input.GetAxis("rotateBuilding");
-        BuildingsBlueprintsQ[number].transform.Rotate(0, -rotation * rotaeBuildingSencetivity, 0, Space.World);
+        currentBlueprint.transform.Rotate(0, -rotation * rotaeBuildingSencetivity, 0, Space.World);
     }
 
     public void PutBuildingDown(int buildingNumber)
     {
         number = buildingNumber;
         inUse = true;
-        otherAnimator = BuildingsBlueprintsQ[number].GetComponent<Animator>();
+
+        currentBlueprint = GameObject.Instantiate(BuildingsBlueprintsQ[number]);
+
+        otherAnimator = currentBlueprint.GetComponent<Animator>();
     }
 
     public RaycastHit RayFromCamera(Vector3 mousePosition, float rayLength)
@@ -270,14 +233,14 @@ public class buildngPlacement : MonoBehaviour
     public bool BoxCast()
     {
         RaycastHit hit = RayFromCamera(Input.mousePosition, 1000.0f);
-        bool canPlaceHere = Physics.CheckBox(hit.point + BuildingsStartLocationOffsetQ[number], BuildingDimensionsQ[number], BuildingsBlueprintsQ[number].transform.rotation, ~BuildingLayersQ[number]);
+        bool canPlaceHere = Physics.CheckBox(hit.point + BuildingsStartLocationOffsetQ[number], BuildingDimensionsQ[number], currentBlueprint.transform.rotation, ~BuildingLayersQ[number]);
         return canPlaceHere;
     }
 
     public Collider[] BoxCollect()
     {
         RaycastHit hit = RayFromCamera(Input.mousePosition, 1000.0f);
-        Collider[] hitColliders = Physics.OverlapBox(hit.point + BuildingsStartLocationOffsetQ[number], BuildingDimensionsQ[number] , BuildingsBlueprintsQ[number].transform.rotation, DestructableLayers);
+        Collider[] hitColliders = Physics.OverlapBox(hit.point + BuildingsStartLocationOffsetQ[number], BuildingDimensionsQ[number] , currentBlueprint.transform.rotation, DestructableLayers);
         //Debug.Log(hitColliders);
         return hitColliders;
     }
@@ -289,7 +252,7 @@ public class buildngPlacement : MonoBehaviour
         return (value - from1) / (to1 - from1) * (to2 - from2) + from2;
     }
 
-
+ 
     private void OnDrawGizmos()
     {
 
@@ -299,5 +262,69 @@ public class buildngPlacement : MonoBehaviour
         //Gizmos.matrix = Matrix4x4.TRS(hit.point + new Vector3(0, 3, 0), BuildingsQ[number].transform.rotation, checkRange);
         Gizmos.DrawWireCube(hit.point + BuildingsStartLocationOffsetQ[number], BuildingDimensionsQ[number] * 2);
     }
-    
+
+    public void PlaceBuilding()
+    {
+
+
+
+
+        bool canPlaceHere = BoxCast();
+        if (!canPlaceHere && !EventSystem.current.IsPointerOverGameObject())
+        {
+            if (RemoveResources())
+            {
+                //destroy trees and stuff
+
+                foreach (Collider col in BoxCollect())
+                {
+                    //Debug.Log(col.gameObject.tag);
+                    if (col.gameObject.CompareTag("destructableTerrain"))
+                    {
+
+
+                        Destroy(col.gameObject);
+
+                    }
+                }
+
+                //instaniate in hq
+                if (HQ != null)
+                {
+                    HQ.GetComponent<cmdPlaceBuilding>().PlaceBuilding(currentBlueprint.transform.position, currentBlueprint.transform.rotation, BuildingsPrefabsQ[number], selectBox);
+                }
+                else
+                {
+                    HQ = GameObject.Find("HQ");
+                    HQ.GetComponent<cmdPlaceBuilding>().PlaceBuilding(currentBlueprint.transform.position, currentBlueprint.transform.rotation, BuildingsPrefabsQ[number], selectBox);
+                }
+                //CmdPlace(BuildingsBlueprintsQ[number].transform.position, BuildingsBlueprintsQ[number].transform.rotation);
+
+
+            }
+            else
+            {
+                Destroy(currentBlueprint);
+            }
+        }
+        if (!Input.GetKey(KeyCode.LeftShift))
+        {
+            Destroy(currentBlueprint);
+        }
+    }
+
+    /*
+    [Command] void CmdPlace(Vector3 pos,Quaternion rot)
+    {
+        
+        GameObject building = Instantiate(BuildingsPrefabsQ[number], pos, rot);
+
+        building.GetComponent<teamIdentefier>().teamID = selectBox.GetComponent<teamIdentefier>().teamID;
+        building.GetComponent<teamIdentefier>().teamColor = selectBox.GetComponent<teamIdentefier>().teamColor;
+
+        selectBox.GetComponent<selected_dictionary>().SetDestination(building.transform, building);
+
+        NetworkServer.Spawn(building,HQ);
+    }
+    */
 }

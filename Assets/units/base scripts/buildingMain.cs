@@ -51,6 +51,13 @@ public class buildingMain : MonoBehaviour
         }
     }
 
+    public void UpdateColor()
+    {
+
+        building_identefier2.SetColor("_OutlineColor", selmir_kad_oboji_kosu.teamColor);
+
+    }
+
     public void Selected()
     {
         gui.SetActive(true);

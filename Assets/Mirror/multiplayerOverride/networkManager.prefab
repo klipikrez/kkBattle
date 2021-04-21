@@ -1,0 +1,97 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2341310406525606098
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7555511314434061488}
+  - component: {fileID: 7804326218820762157}
+  - component: {fileID: 4415435779179420257}
+  m_Layer: 0
+  m_Name: networkManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7555511314434061488
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2341310406525606098}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1198.3131, y: 578.0006, z: 4530.5454}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7804326218820762157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2341310406525606098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1365747f98b82e48b04fe4274a54ea9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dontDestroyOnLoad: 1
+  runInBackground: 1
+  autoStartServerBuild: 1
+  showDebugMessages: 0
+  serverTickRate: 30
+  serverBatching: 0
+  serverBatchInterval: 0
+  offlineScene: 
+  onlineScene: 
+  transport: {fileID: 4415435779179420257}
+  networkAddress: localhost
+  maxConnections: 4
+  disconnectInactiveConnections: 0
+  disconnectInactiveTimeout: 60
+  authenticator: {fileID: 0}
+  playerPrefab: {fileID: 3736955123884655423, guid: a98f68e0fec4cf04a9920fae4bc6d0f8, type: 3}
+  autoCreatePlayer: 1
+  playerSpawnMethod: 0
+  spawnPrefabs:
+  - {fileID: 1789559595934909778, guid: f39336b0c518f1344b32f1cfc2fa2b07, type: 3}
+  - {fileID: 3736955123884655423, guid: a98f68e0fec4cf04a9920fae4bc6d0f8, type: 3}
+  - {fileID: 5487028583023410270, guid: bd76b316528501e42bdb534fd387a127, type: 3}
+  - {fileID: 4985590549144394940, guid: 358299ba53a76c84a99c41877880dfd9, type: 3}
+  - {fileID: 5201231409725058835, guid: 69efdb4d2f1e2d24cb0f385cafa6571c, type: 3}
+  - {fileID: 1540838108713696710, guid: af697a2962398d949960aea926d1f78f, type: 3}
+  lobbyPlayer: {fileID: 1789559595934909778, guid: f39336b0c518f1344b32f1cfc2fa2b07, type: 3}
+  gamePlayer: {fileID: 1540838108713696710, guid: af697a2962398d949960aea926d1f78f, type: 3}
+  multiplayerPannel: {fileID: 0}
+  playerSpawnSystem: {fileID: 2272172178685509719, guid: 544d768816940b744bf7922820a1785a, type: 3}
+--- !u!114 &4415435779179420257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2341310406525606098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b0fecffa3f624585964b0d0eb21b18e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Port: 7777
+  NoDelay: 1
+  Interval: 10
+  FastResend: 2
+  CongestionWindow: 0
+  SendWindowSize: 4096
+  ReceiveWindowSize: 4096
+  debugLog: 0
+  statisticsGUI: 0
+  statisticsLog: 0

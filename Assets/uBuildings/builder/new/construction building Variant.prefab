@@ -423,6 +423,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 458674568946025882, guid: 3fe8a6044f0042249ac7ae6b15327fbc, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 2817758379498312324}
     - target: {fileID: 1079283550278709571, guid: 3fe8a6044f0042249ac7ae6b15327fbc, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -566,6 +570,10 @@ PrefabInstance:
     - target: {fileID: 8806137502780006890, guid: 3fe8a6044f0042249ac7ae6b15327fbc, type: 3}
       propertyPath: m_Name
       value: construction building Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 9108131916056210555, guid: 3fe8a6044f0042249ac7ae6b15327fbc, type: 3}
+      propertyPath: m_AssetId
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1250361476, guid: 3fe8a6044f0042249ac7ae6b15327fbc, type: 3}

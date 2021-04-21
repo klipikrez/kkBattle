@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 718631544495981893}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -379.6, y: 95.1, z: -137.9}
+  m_LocalPosition: {x: 34.8, y: 74, z: -105.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 718631546135590029}
@@ -178,6 +178,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   teamID: 0
   health: 100
+  maxHealth: 0
+  teamColor: {r: 1, g: 0, b: 0, a: 1}
+  outline: {fileID: 0}
+  teamIDI: {fileID: 0}
+  explosionSize: 1
+  bar: {fileID: 0}
   isFlying: 0
 --- !u!1 &718631546135590030
 GameObject:
@@ -308,3 +314,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseSensetivity: 400
+  rotationMin: {x: -0.42261827, y: 0, z: 0, w: 0.90630776}
+  rotationMax: {x: 0.42261827, y: 0, z: 0, w: 0.90630776}

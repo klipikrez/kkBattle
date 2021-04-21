@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Mirror;
 
-public class buildingConstruct : MonoBehaviour
+public class buildingConstruct : NetworkBehaviour
 {
     GameObject menu;
     public Animator building;
@@ -72,19 +73,7 @@ public class buildingConstruct : MonoBehaviour
 
     }
 
-    void BuildUnit(int unitID)
-    {
-        timer = 0;
-        GameObject instanciatedUnit = Instantiate(unit[unitID], spawnSpot.position + new Vector3(Random.Range(-1.0f, 1.0f), 0, Random.Range(-1.0f, 1.0f)), spawnSpot.rotation);
-        instanciatedUnit.GetComponent<teamIdentefier>().teamColor = gameObject.GetComponent<teamIdentefier>().teamColor;
-        instanciatedUnit.GetComponent<teamIdentefier>().teamID = gameObject.GetComponent<teamIdentefier>().teamID;
-        GoDownByOne();
-        if (building != null)
-        {
-            building.Play("spawn");
-        }
-        //animacija za spawn ovde
-    }
+
 
     void GoDownByOne()
     {
@@ -188,4 +177,29 @@ public class buildingConstruct : MonoBehaviour
         return true;
     }
 
+    void BuildUnit(int unitID)
+    {
+        timer = 0;
+        
+        cmdBuildUnit(unitID, spawnSpot.position + new Vector3(Random.Range(-1.0f, 1.0f), 0, Random.Range(-1.0f, 1.0f)), spawnSpot.rotation);
+
+        GoDownByOne();
+        if (building != null)
+        {
+            building.Play("spawn");
+        }
+        //animacija za spawn ovde
+    }
+
+    [Command] void cmdBuildUnit(int unitID,Vector3 spawnPosition,Quaternion spawnRotation)
+    {
+   
+        GameObject instanciatedUnit = Instantiate(unit[unitID], spawnPosition, spawnRotation);
+        instanciatedUnit.GetComponent<TIDsync>().teamColor = gameObject.GetComponent<teamIdentefier>().teamColor;
+        instanciatedUnit.GetComponent<TIDsync>().teamID = gameObject.GetComponent<teamIdentefier>().teamID;
+
+        NetworkServer.Spawn(instanciatedUnit,gameObject);
+        Debug.Log(instanciatedUnit.name);
+
+    }
 }

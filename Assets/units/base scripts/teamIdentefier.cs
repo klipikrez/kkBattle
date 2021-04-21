@@ -9,6 +9,7 @@ public class teamIdentefier : MonoBehaviour
     public float maxHealth;
     public Color teamColor = Color.red;
     public Outline outline;
+    public buildingMain teamIDI;
 
     public float explosionSize = 1f;
 
@@ -32,6 +33,11 @@ public class teamIdentefier : MonoBehaviour
         {
             outline.outlineColor = teamColor;
         }
+    }
+
+    public void UpdateColor()
+    {
+        teamIDI.UpdateColor();
     }
 
     public void TakeDamage(float amount)
